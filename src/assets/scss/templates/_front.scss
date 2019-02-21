@@ -37,7 +37,7 @@
     @include breakpoint(medium) {
       top: 30vh;
       position: absolute;
-      width: 100%;
+      width: 100%; 
     }
     @include breakpoint(large) {
       top: 50vh;

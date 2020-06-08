@@ -41,69 +41,31 @@ get_header(); ?>
 
 				<?php endif; ?>
 
-				<div class="grid-x align-center">
 
+				<header class="grid-x grid-padding-x">
 					<div class="cell">
-						<h4>On Instagram: <a href="<?php the_field('ig_feed_link');?>" target="_blank"><?php the_field('ig_feed_title'); ?></a></h4>
+						<?php the_field('full_width_content'); ?>
 					</div>
-					<div class="cell mb-3 snapwidget mobile">
-						<?php if (the_field('instagram_mobile')) {
-                                the_field('instagram_mobile');
-                            } ?>
-					</div>
-					<div class="cell mb-3 snapwidget desktop">
-						<?php if (the_field('instagram_desktop')) {
-                                the_field('instagram_desktop');
-                            } ?>
-					</div>
+				</header>
 
-					<!-- twitter -->
-					<div class="cell">
+				<div class="grid-x grid-padding-x">
 
-						<h4>On Twitter: <a href="<?php the_field('t_feed_link');?>" target="_blank"><?php the_field('t_feed_title'); ?></a></h4>
-
-					</div>
-
-					<div class="cell mb-3 snapwidget mobile">
-
-						<?php if (the_field('twitter_mobile')) {
-                                the_field('twitter_mobile');
-                            } ?>
-					</div>
-					<div class="cell mb-3 snapwidget desktop">
-						<?php if (the_field('twitter_desktop')) {
-                                the_field('twitter_desktop');
+					<div class="cell medium-6 extra-content">
+						<?php if (the_field('left_content')) {
+                                the_field('left_content');
                             } ?>
 					</div>
 
 					<!-- Embedd content -->
-					<div class="cell medium-6 mb-4">
-						<div class="embed-container">
-							<?php
-
-                            // check if the repeater field has rows of data
-                            if (have_rows('embed_content')):
-
-                                // loop through the rows of data
-                                while (have_rows('embed_content')) : the_row();
-
-                                // display a sub field value
-                                the_sub_field('embed_content_subfield');
-
-                            endwhile;
-
-                            else :
-
-                                // no rows found
-
-                            endif;
-
-                            ?>
-						</div>
+					<div class="cell medium-6 extra-content">
+							<?php if (the_field('right_content')) {
+                                the_field('right_content');
+                            } ?>						</div>
 					</div>
+
 				</div>
 
-				<?php // edit_post_link(__('(Edit)', 'comedy-dynamics'), '<span class="edit-link">', '</span>');?>
+				<?php edit_post_link(__('(Edit)', 'comedy-dynamics'), '<span class="edit-link">', '</span>');?>
 			</div>
 			<footer>
 				<?php

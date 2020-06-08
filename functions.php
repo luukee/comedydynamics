@@ -93,6 +93,7 @@ if (function_exists('acf_add_options_page')) {
         'parent_slug' => 'edit.php?post_type=catalog'
     ));
 }
+// require_once('library/schema.php');
 
 /**
  * Create ACF setting page under Press Release CPT
@@ -167,28 +168,76 @@ function Comedy_Dynamics_cpt_order($orderby)
 }
 
 // add body class to body
-function wp_body_classes($classes)
+// function wp_body_classes($classes)
+// {
+//     if (is_page_template('page-templates/front.php')) {
+//         $classes[] = 'medium-grid-frame grid-y';
+//     }
+//     return $classes;
+// }
+// add_filter('body_class', 'wp_body_classes');
+
+
+
+
+// add_filter(‘wpseo_metadesc’, ‘show_event_description’, 10, 1);
+//
+// function show_event_description($str)
+// {
+//
+//     // e.g. only Single 'Event' page
+//     if (is_singular('catalog')) {
+//         $str = '';
+//
+//         $content = get_field('synopsis');
+//
+//         $str = sanitize_text_field(mb_substr($content, 0, 300, 'UTF-8'));
+//     }
+//     return $str;
+// }
+
+// custom user role
+add_role(
+    'custom_editor',
+    __('CD Editor'),
+    array(
+        'read'         => true,  // true allows this capability
+        'edit_posts'   => true,
+        'edit_theme_options'    => true,
+        'edit_pages' => true,
+        'publish_pages' => true,
+        'publish_posts' => true,
+        'delete_published_posts' => true,
+        'edit_dashboard' => true,
+        'edit_others_pages' => true,
+        'edit_others_posts' => true,
+        'edit_pages' => true,
+        'edit_posts' => true,
+        'edit_private_pages' => true,
+        'edit_private_posts' => true,
+        'edit_published_pages' => true,
+        'edit_published_posts' => true,
+        'edit_theme_options' => true,
+        'delete_others_pages' => true,
+        'delete_others_posts' => true,
+        'delete_pages' => true,
+        'delete_posts' => true,
+        'delete_private_pages' => true,
+        'delete_private_posts' => true,
+        'delete_published_pages' => true
+    )
+);
+
+
+// advanced custom fields
+add_action('admin_head', 'cd_custom_css');
+
+function cd_custom_css()
 {
-    if (is_page_template('page-templates/front.php')) {
-        $classes[] = 'medium-grid-frame grid-y';
+    echo '<style>
+    .short-title {
+      // height:14rem !important;
     }
-    return $classes;
+  </style>';
 }
-add_filter('body_class', 'wp_body_classes');
 
-
-add_filter(‘wpseo_metadesc’, ‘show_event_description’, 10, 1);
-
-function show_event_description($str)
-{
-
-    // e.g. only Single 'Event' page
-    if (is_singular('catalog')) {
-        $str = '';
-
-        $content = get_field('synopsis');
-
-        $str = sanitize_text_field(mb_substr($content, 0, 300, 'UTF-8'));
-    }
-    return $str;
-}

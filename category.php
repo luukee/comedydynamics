@@ -17,15 +17,21 @@
 
 get_header(); ?>
 
-<main class="mt-3">
+<main>
 
-	<div class="grid-container full grid-x">
+	<div class="grid-container full align-center pt-3">
 
 	<!-- check if is any of the secondary categories (album, film, production series ext.) -->
-	<?php if (is_category(array( 1973, 1974, 1975, 1976, 1979, 1980 ))) :?>
+	<?php if (is_category(array( 1973, 1974, 1975, 1976 ))) :?>
 
 		<!-- get the content from the template-parts folder -->
 		<?php get_template_part('/template-parts/content-categories'); ?>
+
+		<!-- production categories -->
+	<?php elseif (is_category(array( 1979, 1980 ))) :?>
+
+	<!-- get the content from the template-parts folder -->
+		<?php get_template_part('/template-parts/production-content-categories'); ?>
 
 	<?php else : ?>
 

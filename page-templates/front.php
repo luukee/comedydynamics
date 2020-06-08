@@ -8,41 +8,81 @@ get_header(); ?>
 
 <?php while (have_posts('')) : the_post();?>
 
-	<main class="grid-x">
+<div class="grid-y">
 
-		<div class="grid-x medium-12 circle-posts">
+	<!-- header -->
+	<div class="grid-x tagline">
 
-			<div class="cell">
+		<div class="medium-12 cell text-center">
 
-				<ul class="circle-container">
+			<h1 class="hide">Comedy Dynamics</h1>
 
-					<?php $post_objects = get_field('home_circle_post');
+			<h2>
+				<strong>
+					<?php the_field('heading'); ?>
+				</strong>
+			</h2>
 
-                    if ($post_objects): ?>
+		</div>
 
-					<?php foreach ($post_objects as $post_object): ?>
+	</div>
 
-						<li>
+	<main class="main grid-x grid-padding-x">
 
-							<a href="<?php echo get_permalink($post_object->ID); ?>">
+		<?php $count = 0; ?>
 
+		<?php $post_objects = get_field('home_circle_post');
 
-							<?php
+        if ($post_objects): ?>
 
-              $img_size_lg = 'fp-large';
-              $img_size_md = 'fp-medium';
-              $img_size_sm = 'fp-small';
+		<?php foreach ($post_objects as $post_object): $count++; ?>
 
-              $image = get_field('square_image', $post_object->ID);
+			<?php
+			$img_size_lg = 'fp-large';
+			$img_size_md = 'fp-medium';
+			$img_size_sm = 'fp-small';
+			$image = get_field('home_image', $post_object->ID);
+			$hero_image_alt = $image['alt']; /* Get image object alt */
+			/* Get custom sizes of our image sub_field */
+			$hero_lg = $image['sizes'][ $img_size_lg ];
+			$hero_md = $image['sizes'][ $img_size_md ];
+			$hero_sm = $image['sizes'][ $img_size_sm ];
+			?>
 
-              $hero_image_alt = $image['alt']; /* Get image object alt */
+			<!-- if is the first home image add a class -->
+			<?php if ($count == 1): ?>
 
-              /* Get custom sizes of our image sub_field */
-              $hero_lg = $image['sizes'][ $img_size_lg ];
-              $hero_md = $image['sizes'][ $img_size_md ];
-              $hero_sm = $image['sizes'][ $img_size_sm ];
+				<!-- first home images class -->
+				<div class="first-home-images no-mobile cell">
 
-              ?>
+					<!-- . . . and print the home-image -->
+					<div class="home-image">
+
+						<a href="<?php echo get_permalink($post_object->ID); ?>">
+
+							<!-- Hook up Interchange as an img src -->
+							<img class="my-hero superman" data-interchange="[<?php echo $hero_md; ?>, default], [<?php echo $hero_sm; ?>, small], [<?php echo $hero_md; ?>, medium], [<?php echo $hero_md; ?>, large]" alt="<?php echo $hero_image_alt; ?>" />
+
+							<noscript><img src="<?php echo $hero_lg; ?>" alt="<?php echo $hero_image_alt; ?>" /></noscript>
+
+						</a>
+
+					</div>
+
+			<!-- if is the third image add the orbit carousel and a new class -->
+			<?php elseif ($count == 3): ?>
+
+				<!-- orbit carousel -->
+				<?php //get_template_part('template-parts/orbit-carousel-invisible'); ?>
+				<?php get_template_part('template-parts/orbit-carousel'); ?>
+
+				<!-- . . . new class -->
+				<div class="last-home-images no-mobile cell">
+
+					<!-- continue showing the home_image posts -->
+					<div class="home-image">
+
+						<a href="<?php echo get_permalink($post_object->ID); ?>">
 
 							<!-- Hook up Interchange as an img src -->
 							<img class="my-hero superman" data-interchange="[<?php echo $hero_md; ?>, default], [<?php echo $hero_sm; ?>, small], [<?php echo $hero_md; ?>, medium], [<?php echo $hero_md; ?>, large]" alt="<?php echo $hero_image_alt; ?>" />
@@ -50,76 +90,55 @@ get_header(); ?>
 
 						</a>
 
-						</li>
+					</div>
 
-					<?php endforeach; ?>
+				<!-- otherwise print the home-image -->
+				<?php else: ?>
 
-				<?php endif; ?>
+					<!-- continue showing the home_image posts -->
+					<div class="home-image">
 
-			</ul>
+						<a href="<?php echo get_permalink($post_object->ID); ?>">
 
+						  <!-- Hook up Interchange as an img src -->
+						  <img class="my-hero superman" data-interchange="[<?php echo $hero_md; ?>, default], [<?php echo $hero_sm; ?>, small], [<?php echo $hero_md; ?>, medium], [<?php echo $hero_md; ?>, large]" alt="<?php echo $hero_image_alt; ?>" />
 
-			<div class="grid-x medium-12 align-center align-middle orbit-posts">
+						  <noscript><img src="<?php echo $hero_lg; ?>" alt="<?php echo $hero_image_alt; ?>" /></noscript>
 
-				<div class="cell medium-4 large-3">
+						</a>
 
-					<div class="orbit animation-element" data-timer-delay="2000" role="region" aria-label="Comedy Dynamics featured works" data-orbit data-options="animInFromLeft:fade-in; animInFromRight:fade-in; animOutToLeft:fade-out; animOutToRight:fade-out;">
-
-						<ul class="orbit-container">
-
-							<?php $post_objects = get_field('home_feat_posts');
-
-                            if ($post_objects): ?>
-
-							<?php foreach ($post_objects as $post_object): ?>
-
-								<li class="orbit-slide">
-
-									<a href="<?php echo get_permalink($post_object->ID); ?>">
-
-									<?php
-
-                                    $img_size_lg = 'fp-large';
-                                    $img_size_md = 'fp-medium';
-                                    $img_size_sm = 'fp-small';
-
-                                    $image = get_field('square_image', $post_object->ID);
-
-                                    $hero_image_alt = $image['alt']; /* Get image object alt */
-
-                                    /* Get custom sizes of our image sub_field */
-                                    $hero_lg = $image['sizes'][ $img_size_lg ];
-                                    $hero_md = $image['sizes'][ $img_size_md ];
-                                    $hero_sm = $image['sizes'][ $img_size_sm ];
-
-                                    ?>
-
-									<!-- Hook up Interchange as an img src -->
-									<img class="my-hero superman" data-interchange="[<?php echo $hero_md; ?>, default], [<?php echo $hero_sm; ?>, small], [<?php echo $hero_md; ?>, medium], [<?php echo $hero_md; ?>, large]" alt="<?php echo $hero_image_alt; ?>" />
-									<noscript><img src="<?php echo $hero_lg; ?>" alt="<?php echo $hero_image_alt; ?>" /></noscript>
-
-									</a>
-
-								</li>
-
-							<?php endforeach; ?>
-
-						<?php endif; ?>
-
-					</ul>
+					</div>
 
 				</div>
 
-			</div>
+			<?php endif; ?>
 
-		</div>
+		<?php endforeach; ?>
 
-	</div>
+		</div> <!-- closing last-home-images -->
+
+		<?php endif; ?>
+
+	</main>
 
 </div>
 
-</main>
-
 <?php endwhile; ?> <!-- END LOOP -->
+
+<div class="grid-x mb-3 mt-4 align-center">
+
+    <div class="large-6">
+
+		<h4 style="text-align:center !important;font-family: MontserratRegular,sans-serif !important;">
+
+			<?php the_field('additional_bottom_content'); ?>
+
+		</h4>
+
+	</div>
+	
+</div>
+
+
 
 <?php get_footer(); ?>

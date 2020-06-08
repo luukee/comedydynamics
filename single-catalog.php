@@ -27,6 +27,7 @@ get_header(); ?>
     $genres = get_the_terms($post->ID, 'genre');
     $videoEmbeddPlease = get_field('video_embedd');
     $videoEmbedd = get_field('video_embedd');
+    $theatresPopup = get_field('theatres_popup');
 
     ?>
 
@@ -54,16 +55,16 @@ get_header(); ?>
 
 				</div>
 
-				<!-- modal button -->
-				<?php if (!empty($videoEmbedd)): ?>
-
 				<div class="grid-x align-middle">
 
 					<div class="cell medium-5 grid-offset-5">
 
 						<div class="play grid-x align-start">
+                        
+                        	<!-- modal button -->
+							<?php if (!empty($videoEmbedd)): ?>
 
-							<div class="cell">
+							<div class="cell medium-4">
 
 								<button class="bounce hollow button success" data-open="videoModal1">
 
@@ -72,14 +73,23 @@ get_header(); ?>
 								</button>
 
 							</div>
+                            
+                            <?php endif; ?>
+                            <!-- END modal button -->
+                            
+                            <?php if ($theatresPopup): ?>
 
+								<!-- include tickets modal -->
+								<?php get_template_part('template-parts/tickets-modal', 'none'); ?>
+
+							<?php endif; ?>
+                            
 						</div>
 
 					</div>
 
 				</div>
-				<?php endif; ?>
-				<!-- END modal button -->
+
 
 			</div> <!-- END grid-container -->
 
@@ -244,6 +254,22 @@ get_header(); ?>
 
 				</div>
 
+				<div class="grid-x grid-padding-y">
+
+					<?php $imdb = get_field('imdb_video'); ?>
+					<?php if ($imdb) : ?>
+					<!-- imdb video -->
+					<a href="<?php echo $imdb; ?>" target="_blank">
+						
+						<!-- <img src="<?php // bloginfo('template_directory'); ?>/dist/assets/images/imdb.svg" alt="IMDB" /> -->
+						<!-- <b class="ml-1">View <?php //the_title(); ?></b> -->
+						<b class="ml-1">View on IMDb</b>
+
+					</a>
+
+					<?php endif; ?>
+
+				</div>
 			</div>
 
 				<div class="meta-accordion catalog-bottom-meta grid-container-full pl-medium-3">

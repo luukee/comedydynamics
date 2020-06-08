@@ -34,6 +34,7 @@
 	<meta name="msapplication-TileColor" content="#ffffff">
 	<meta name="msapplication-TileImage" content="<?php echo get_template_directory_uri(); ?>/favicon/ms-icon-144x144.png">
 	<meta name="theme-color" content="#ffffff">
+	<?php wp_head(); ?>
 
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script src="https://www.googleoptimize.com/optimize.js?id=OPT-KTVWKVQ"></script>
@@ -77,7 +78,6 @@
 	<!-- ahref -->
 	<meta name="ahrefs-site-verification" content="7b69fa741e252eb602a92c6de05acd1444ee71d78dab8f344cd5a142be8153da">
 	<!-- ahref -->
-	<?php wp_head(); ?>
 </head>
 
 <body <?php body_class(); ?>>

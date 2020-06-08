@@ -67,6 +67,12 @@ get_header(); ?>
 					.thumbnail-wrapper .thumbnail:hover {
 						box-shadow: none;
 					}
+
+					.main-grid .main-content-full-width {
+						width: 100%;
+						margin-right: 5px;
+						margin-left: 5px;
+					}
 				</style>
 				<div class="grid-x text-center">
 					<div class="cell">
@@ -98,7 +104,7 @@ get_header(); ?>
 												<?php if ($IGpostTrue) : ?>
 													<div style="max-width: 845px;">
 														<div style="left: 0; width: 100%; height: 0; position: relative; padding-bottom: 100%;">
-															<iframe src="//cdn.iframe.ly/api/iframe?url=<?php echo $IGpostLink; ?>&amp;key=5499a91ca3097ad0da51546ce4fba7ff&amp;media=1" style="border: 0; top: 0; left: 0; width: 100%; height: 100%; position: absolute;" allowfullscreen></iframe>															
+															<iframe src="//cdn.iframe.ly/api/iframe?url=<?php echo $IGpostLink; ?>&amp;key=5499a91ca3097ad0da51546ce4fba7ff&amp;media=1" style="border: 0; top: 0; left: 0; width: 100%; height: 100%; position: absolute;" allowfullscreen></iframe>
 														</div>
 													</div>
 
@@ -127,7 +133,8 @@ get_header(); ?>
 					</div>
 
 				<?php endif; ?>
-				<?php //comments_template(); ?>
+				<?php //comments_template(); 
+				?>
 			<?php endwhile; ?>
 		</main>
 	</div>

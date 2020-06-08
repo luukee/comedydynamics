@@ -4,7 +4,7 @@ Template Name: Featured Page
 */
 get_header(); ?>
 
-<div class="main-container grid-container full">
+<div class="main-container grid-container full featured-page">
 	<div class="main-grid">
 		<main class=" grid-x">
 			<?php while (have_posts()) : the_post(); ?>
@@ -27,43 +27,70 @@ get_header(); ?>
 								</a>
 								<?php
 
-                $imdb = get_field('imdb');
-                $instagram = get_field('instagram');
-                $twitter = get_field('twitter');
-                $facebook = get_field('facebook');
+								$imdb = get_field('imdb');
+								$instagram = get_field('instagram');
+								$twitter = get_field('twitter');
+								$facebook = get_field('facebook');
 
-                ?>
-								<?php if ($imdb) : ?>
-									<a class="text-center" href="<?php echo $imdb; ?>" target="_blank">
-										<i class="fab fa-imdb"></i>
-								<?php endif; ?>
-								<?php if ($imdb): ?>
-									</a>
-								<?php endif; ?>
+								?>
 
-								<?php if ($instagram) : ?>
-									<a class="text-center" href="<?php echo $instagram; ?>" target="_blank">
-										<i class="fab fa-instagram"></i>
-								<?php endif; ?>
-								<?php if ($instagram): ?>
-									</a>
-								<?php endif; ?>
+								<div class="cell">
 
-								<?php if ($twitter) : ?>
-									<a class="text-center" href="<?php echo $twitter; ?>" target="_blank">
-										<i class="fab fa-twitter"></i>
-								<?php endif; ?>
-								<?php if ($twitter): ?>
-									</a>
-								<?php endif; ?>
+									<div class="grid-x">
 
-								<?php if ($facebook) : ?>
-									<a class="text-center" href="<?php echo $facebook; ?>" target="_blank">
-									<i class="fab fa-facebook-square"></i>
-								<?php endif; ?>
-								<?php if ($facebook): ?>
-									</a>
-								<?php endif; ?>
+										<?php if ($imdb) : ?>
+											<div class="cell medium-6 text-center">
+												<a class="text-center" href="<?php echo $imdb; ?>" target="_blank">
+													<i class="fab fa-imdb"></i>
+										<?php endif; ?>
+										<?php if ($imdb): ?>
+												</a>
+											</div>
+										<?php endif; ?>
+
+										<?php if ($instagram) : ?>
+											<div class="cell medium-6 text-center">
+												<a class="text-center" href="<?php echo $instagram; ?>" target="_blank">
+													<i class="fab fa-instagram"></i>
+										<?php endif; ?>
+										<?php if ($instagram): ?>
+												</a>
+											</div>
+										<?php endif; ?>
+
+										<?php if ($twitter) : ?>
+											<div class="cell medium-6 text-center">
+												<a class="text-center" href="<?php echo $twitter; ?>" target="_blank">
+													<i class="fab fa-twitter"></i>
+										<?php endif; ?>
+										<?php if ($twitter): ?>
+												</a>
+											</div>
+										<?php endif; ?>
+
+										<?php if ($facebook) : ?>
+											<div class="cell medium-6 text-center">
+												<a class="text-center" href="<?php echo $facebook; ?>" target="_blank">
+													<i class="fab fa-facebook-square"></i>
+										<?php endif; ?>
+										<?php if ($facebook): ?>
+												</a>
+											</div>
+										<?php endif; ?>
+
+									</div>
+
+								</div>
+
+								<div class="cell text-center">
+
+									<!-- include tickets modal -->
+								<?php get_template_part('template-parts/tickets-modal', 'none'); ?>
+
+								</div>
+
+								
+
 
 							</div>
 
@@ -88,14 +115,16 @@ get_header(); ?>
 						</footer>
 
 					</a>
-
+					<?php edit_post_link(__('(Edit)', 'comedy-dynamics'), '<span class="edit-link">', '</span>');?>
 
 				</div>
 
-				<?php comments_template(); ?>
 			<?php endwhile; ?>
+
 		</main>
+
 	</div>
+
 </div>
 
 <!-- VIDEO MODAL -->
@@ -120,6 +149,10 @@ if (!empty($featTrailerEmbed)): ?>
 	  </button>
 
 	</div>
+
 <?php endif ?>
+<!-- end video modal -->
+
+
 
 <?php get_footer();

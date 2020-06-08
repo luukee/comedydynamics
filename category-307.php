@@ -199,6 +199,7 @@ get_header(); ?>
 			</div>
 		</div>
 
+
 	<?php else : ?>
 		<h4>NO posts on this page</h4>
 	<?php endif; // End have_posts() check.?>
@@ -246,14 +247,14 @@ get_header(); ?>
 					<?php while (have_rows('bottom_repeater', 'option')): the_row();
 
                         // vars
-                        $leftContent = get_sub_field('l_editor', 'option');
-                        $rightContent = get_sub_field('r_editor', 'option');
+                        // $leftContent = get_sub_field('l_editor', 'option');
+                        $rightContent = get_sub_field('right_editor', 'option');
                         // var_dump($leftContent);
                         ?>
+												<?php the_sub_field($rightContent, 'option'); ?>
 
 							<?php if ($leftContent): ?>
 								<p>
-									<?php the_sub_field('l_editor'); ?>
 								</p>
 							<?php endif; ?>
 
@@ -266,9 +267,10 @@ get_header(); ?>
 					<?php endwhile; ?>
 
 				<?php endif; ?>
-
 			</div>
 
+			<h1><?php the_field('simple_text', 'option'); ?>
+			</h1>
 
 </main>
 

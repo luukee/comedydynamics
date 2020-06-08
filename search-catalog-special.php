@@ -90,7 +90,7 @@ get_header(); ?>
 
 							<div class="cell text-center">
 
-								<h3><?php _e('Sorry, no results for that search.', 'comedy-dynamics'); ?></h3>
+								<h3>Sorry no results for " <?php echo esc_html(get_search_query(false)); ?> "</h3>
 
 								<a class="button" data-toggle="searchSpecialOffCanvas"><?php _e('Try another search!', 'comedy-dynamics'); ?></a>
 
@@ -99,7 +99,9 @@ get_header(); ?>
 					<?php endif; ?>
 
 				</div>
+
 			</div>
+
 		</div>
 
 	</div>

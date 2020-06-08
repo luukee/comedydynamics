@@ -56,6 +56,20 @@
 
 	                    <?php echo do_shortcode('[searchandfilter slug="album-search"]'); ?>
 
+					<!-- production series -->
+	                <?php elseif (is_category(1979)) : ?>
+
+	                    <h4 class="ml-2"><?php _e('Search Series', 'comedy-dynamics'); ?></h4>
+
+	                    <?php echo do_shortcode('[searchandfilter slug="production-series-search"]'); ?>
+
+					<!-- production special -->
+	                <?php elseif (is_category(1980)) : ?>
+
+	                    <h4 class="ml-2"><?php _e('Search Specials', 'comedy-dynamics'); ?></h4>
+
+	                    <?php echo do_shortcode('[searchandfilter slug="production-special-search"]'); ?>
+
 	                <?php endif; ?>
 
 				<?php endif; ?>

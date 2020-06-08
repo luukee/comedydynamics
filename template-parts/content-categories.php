@@ -69,12 +69,12 @@
 
 					<!-- if catalog item has a "Custom Page Redirect" link. . . -->
 					<?php
-                    $link = get_field('custom_page_redirect');
+          $link = get_field('custom_page_redirect');
 
-                    if ($link):
+          if ($link):
 
-                        $link_url = $link['url'];
-                        ?>
+              $link_url = $link['url'];
+              ?>
 
 						<!-- link to the "Custom Page Redirect" page -->
 						<a href="<?php echo esc_url($link_url); ?>">

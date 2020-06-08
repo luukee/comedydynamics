@@ -13,29 +13,32 @@
 		<h3>
 			<?php _e('Contact Us', 'comedy-dynamics'); ?>
 		</h3>
-		<span>
-			<i class="fas fa-user-circle"></i>
-			<?php _e('PR & Marketing: ', 'comedy-dynamics'); ?>
-			<?php the_field('media_contact'); ?>
-		</span>
 
-		<br>
+		<main>
 
-		<span>
-			<i class="fas fa-phone"></i>
-			<a href="tel:<?php the_field('phone'); ?>">
-				<?php the_field('phone'); ?>
-			</a>
-		</span>
+			<section>
+				<i class="fas fa-user-circle"></i>
+				<p>
+					<?php _e('PR & Marketing: ', 'comedy-dynamics'); ?>
+					<?php the_field('media_contact'); ?>
+				</p>
+			</section>
 
-		<br>
+			<section>
+				<i class="fas fa-phone"></i>
+				<a href="tel:<?php the_field('phone'); ?>">
+					<p><?php the_field('phone'); ?></p>
+				</a>
+			</section>
 
-		<span>
-			<i class="fas fa-at"></i>
-			<a href="mailto:<?php the_field('email'); ?>?Subject=Hello%20Comedy%20Dynamics%20Press" target="_top">
-				<?php the_field('email'); ?>
-			</a>
-		</span>
+			<section>
+				<i class="fas fa-at"></i>
+				<a href="mailto:<?php the_field('email'); ?>?Subject=Hello%20Comedy%20Dynamics%20Press" target="_top">
+					<p><?php the_field('email'); ?></p>
+				</a>
+			</section>
+
+		</main>
 
 	<?php endif; ?>
 

@@ -1,0 +1,8 @@
+[23-May-2019 15:55:48 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/comedydy/public_html/wp-content/themes/foundationpress_2019-03-15_13-45/index.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/comedydy/public_html/wp-content/themes/foundationpress_2019-03-15_13-45/index.php on line 16
+[03-Jun-2019 21:59:47 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/comedydy/public_html/wp-content/themes/foundationpress_2019-03-15_13-45/index.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/comedydy/public_html/wp-content/themes/foundationpress_2019-03-15_13-45/index.php on line 16

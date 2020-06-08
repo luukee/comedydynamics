@@ -90,7 +90,7 @@ get_header(); ?>
 
 							<div class="cell text-center">
 
-								<h3><?php _e('Sorry, no results for that search.', 'comedy-dynamics'); ?></h3>
+								<h3>Sorry no results for " <?php echo esc_html(get_search_query(false)); ?> "</h3>
 
 								<a class="button" data-toggle="searchSeriesOffCanvas"><?php _e('Try another search!', 'comedy-dynamics'); ?></a>
 
@@ -123,7 +123,7 @@ get_header(); ?>
 
 					<h4 class="ml-2"><?php _e('Search Series', 'comedy-dynamics'); ?></h4>
 
-					<?php echo do_shortcode('[searchandfilter slug="series-search"]'); ?>
+					<?php echo do_shortcode('[searchandfilter slug="4757"]'); ?>
 
 				</div>
 			</div>

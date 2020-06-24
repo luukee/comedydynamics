@@ -63,10 +63,10 @@
 		<div class="cell medium-10 artwork-container">
 
 			<?php if (has_post_thumbnail()) {
-				the_post_thumbnail('large', $attr = '');
+				the_post_thumbnail('large', $attr );
 			} else {
 			?>
-				<img src="<?php //  bloginfo('template_directory'); ?>/dist/assets/images/default-image.png" alt="<?php the_title(); ?>" />
+				<img src="<?php bloginfo('template_directory'); ?>/dist/assets/images/default-image.png" alt="<?php the_title(); ?>" />
 			<?php
 			} ?>
 

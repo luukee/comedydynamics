@@ -21,3 +21,36 @@ body.admin-bar {
     }
   }
 }
+
+blockquote {
+    font-style: italic;
+    width: 450px;
+    margin: 0.25em 0;
+    padding: 1.25em 43px;
+    line-height: 1.45;
+    position: relative;
+    color: #ffffff;
+    background:#202020;
+}
+ 
+blockquote:before {
+    display: block;
+    content: "\201C";
+    font-size: 80px;
+    font-family: auto;
+    position: absolute;
+    left: -5px;
+    top: -10px;
+    color: #565656;
+}
+ 
+blockquote cite {
+    color: #545454;
+    font-size: 14px;
+    display: block;
+    margin-top: 5px;
+}
+  
+blockquote cite:before {
+    content: "\2014 \2009";
+}

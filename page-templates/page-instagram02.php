@@ -194,6 +194,10 @@ get_header(); ?>
         min-width: 100px !important;
         margin: -59px 0 12px !important;
     }
+
+    iframe [aria-label="Play"] {
+        display: none;
+    }
 </style>
 
 

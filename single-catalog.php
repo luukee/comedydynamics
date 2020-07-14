@@ -29,6 +29,7 @@ get_header(); ?>
 	$videoEmbeddPlease = get_field('video_embedd');
 	$videoEmbedd = get_field('video_embedd');
 	$theatresPopup = get_field('theatres_popup');
+	$extraInfo = get_field('extra_info');
 
 	?>
 
@@ -444,6 +445,24 @@ get_header(); ?>
 		</main>
 	</div> <!-- closing div for featured-image.php topmost "grid-container" -->
 
+	<?php if (!empty($videoEmbedd)) : ?>
+
+		<div class="grid-container">
+
+			<div class="grid-x align-center-middle grid-margin-x">
+
+				<div class="cell">
+
+					<?php echo $extraInfo; ?>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	<?php endif; ?>
+
 	<?php if (have_rows('embedded_content')) : ?>
 
 		<?php while (have_rows('embedded_content')) : the_row();
@@ -466,7 +485,6 @@ get_header(); ?>
 					</div>
 				</div>
 			</div>
-
 
 			<div class="grid-x">
 

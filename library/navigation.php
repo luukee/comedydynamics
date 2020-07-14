@@ -26,7 +26,7 @@ function Comedy_Dynamics_custom_logo_setup()
 {
     $defaults = array(
         'height'      => 90,
-        'width'       => 300,
+        'width'       => 200,
         'flex-height' => true,
         'flex-width'  => true,
         'header-text' => array( 'site-title', 'site-description' ),

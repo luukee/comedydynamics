@@ -39,7 +39,7 @@ if (!empty('news_header_image')):
 		<main class="main-content">
 
       <!-- https://developer.wordpress.org/reference/functions/query_posts/ -->
-		<?php $posts = query_posts($query_string . "&posts_per_page=60&order=DESC");
+		<?php $posts = query_posts($query_string . "&posts_per_page=-1&order=DESC");
         if (have_posts()) : ?>
 
 			<!-- Start the Loop  -->

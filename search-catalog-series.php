@@ -38,13 +38,11 @@ get_header(); ?>
 
 				<div class="grid-x small-2 medium-4 large-6 align-center-middle" id="results">
 
-					<?php
-                    if (have_posts()) : ?>
+					<?php if (have_posts()) : ?>
 
 						<?php while (have_posts()) : the_post(); ?>
 
 							<?php if (get_field('square_image', $post->ID)): ?>
-
 
 							<div class="media-container cell medium-2 mb-4 mb-medium-5 mb-medium-4 mb-large-5 mb-xlarge-3">
 
@@ -86,7 +84,7 @@ get_header(); ?>
 
 						<?php endwhile; ?>
 
-						<?php else : ?>
+					<?php else : ?>
 
 							<div class="cell text-center">
 
@@ -123,7 +121,7 @@ get_header(); ?>
 
 					<h4 class="ml-2"><?php _e('Search Series', 'comedy-dynamics'); ?></h4>
 
-					<?php echo do_shortcode('[searchandfilter slug="4757"]'); ?>
+					<?php echo do_shortcode('[searchandfilter slug="series-search"]'); ?>
 
 				</div>
 			</div>
